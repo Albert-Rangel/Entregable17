@@ -190,8 +190,9 @@ components:
           type: ObjectId
           description: Id autogenerado de mongo
         products:
-          type: []
-          description: Nombre del producto
+          type: array
+          items:
+            $ref: '#components/schemas/Products'
       example:
         _id: 656f373d61740b17ec638d66
         title: Cellphone
