@@ -1900,3 +1900,11 @@ error: error {"label":"logs","timestamp":"2023-11-26T19:21:44.746Z"}
 2023-12-16T16:40:03.234Z [logs] error: Error en ProductsService/addProductviaService: ValidationError: title: Path `title` is required., description: Path `description` is required., price: Path `price` is required., code: Path `code` is required., stock: Path `stock` is required., status: Path `status` is required., category: Path `category` is required.
 2023-12-16T16:48:12.005Z [logs] error: Error en ProductsService/addProductviaService: MongoServerError: E11000 duplicate key error collection: test.products index: code_1 dup key: { code: "a1a2a3" }
 2023-12-16T18:17:47.459Z [logs] error: Error en CartService/addCartProductsviaService: CastError: Cast to ObjectId failed for value "{ _id: undefined }" (type Object) at path "_id" for model "carts"
+error: Error en ProductsService/getProductNpaginviaService: MongooseError: Operation `products.find()` buffering timed out after 10000ms {"label":"logs","timestamp":"2023-12-16T20:22:52.123Z"}
+error: Error en ProductsService/getProductNpaginviaService: MongooseError: Operation `products.find()` buffering timed out after 10000ms {"label":"logs","timestamp":"2023-12-16T20:24:31.735Z"}
+error: Error en ProductsService/getProductNpaginviaService: MongooseError: Operation `products.find()` buffering timed out after 10000ms {"label":"logs","timestamp":"2023-12-16T20:55:50.453Z"}
+error: Error en ProductsService/getProductbyIDviaService: MongooseError: Operation `products.find()` buffering timed out after 10000ms {"label":"logs","timestamp":"2023-12-16T20:56:00.477Z"}
+error: Error en ProductsService/getProductNpaginviaService: MongooseError: Operation `products.find()` buffering timed out after 10000ms {"label":"logs","timestamp":"2023-12-16T20:56:10.495Z"}
+error: Error en ProductsService/getProductNpaginviaService: MongooseError: Operation `products.find()` buffering timed out after 10000ms {"label":"logs","timestamp":"2023-12-16T20:56:30.256Z"}
+error: Error en ProductsService/getProductbyIDviaService: MongooseError: Operation `products.find()` buffering timed out after 10000ms {"label":"logs","timestamp":"2023-12-16T20:56:40.270Z"}
+error: Error en ProductsService/getProductNpaginviaService: MongooseError: Operation `products.find()` buffering timed out after 10000ms {"label":"logs","timestamp":"2023-12-16T20:56:50.284Z"}
