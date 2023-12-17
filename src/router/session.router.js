@@ -63,11 +63,12 @@ router.post('/loginandlogoutTest',
     };
 
     req.session.isLogged = true;
+
+    var user = req.session.user
     console.log("llegp hasta el session router")
-    console.log(req.session.user)
     req.session.destroy()
 
-    return res.status(200).send()
+    return res.status(200).send(user)
   }
 );
 

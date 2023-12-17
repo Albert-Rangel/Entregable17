@@ -4,7 +4,7 @@ import supertest from 'supertest'
 const expect = chai.expect
 const requester = supertest('http://localhost:8080')
 
-describe('test para hacer login y logout de session', () => {
+describe('test para hacer login, traer el dto y hacer logout de session', () => {
 
     it('deberia hacer un login', async () => {
         const user = {
@@ -14,7 +14,7 @@ describe('test para hacer login y logout de session', () => {
         }
         const { statusCode, ok, _body } = await requester.post('/api/loginandlogoutTest').send(user)
 
-        expect(ok).to.be.equals(true)
+        expect(_body).to.have.property('id')
     })
 
 })
