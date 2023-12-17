@@ -48,18 +48,23 @@ const initiaizePassport = () => {
             { usernameField: 'email' },
             async (username, password, done) => {
                 try {
+                    console.log("llegp hasta el passport")
+                    console.log("username " + username)
+                    console.log("password " + password)
 
                     const user = await userModel.findOne({ email: username }).lean();
 
                     if (!user) {
-
+                        console.log("no encontro el usuario")
                         return done(null, false);
                     }
 
                     if (!bcrypt.compareSync(password, user.password)) {
+                        console.log("no es la misma contrase;a")
 
                         return done(null, false);
                     }
+                    console.log("si lo encontro")
 
                     return done(null, user);
 

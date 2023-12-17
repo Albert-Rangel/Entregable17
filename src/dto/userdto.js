@@ -2,7 +2,6 @@ class userDTO {
     static getUserInputFrom = (user) => {
         const objectId_ = user.cart[0]._id
         var swUndefined= false
-        console.log(objectId_)
         const hexString = objectId_
         // Extract the hexadecimal representation
         if(objectId_ != '16548615318348311'){

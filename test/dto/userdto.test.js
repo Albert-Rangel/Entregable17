@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import userdto from '../../src/dto/userdto.js';
 import Assert from 'assert'
 import chai, { expect } from 'chai'
+import supertest from "supertest";
 
 mongoose.connect('mongodb+srv://albertto71:WwtuyUvrpVbqG622@cluster0.yk9l1lt.mongodb.net/?retryWrites=true&w=majority')
 

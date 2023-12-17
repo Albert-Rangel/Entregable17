@@ -19,7 +19,7 @@ router.post('/login', publicRoutes,
     // Extract the hexadecimal representation
     const hexString = objectId_.toHexString();
 
-    
+
     req.session.user = {
       firstname: req.user.firstname,
       lastname: req.user.lastname,
@@ -28,7 +28,7 @@ router.post('/login', publicRoutes,
       cart: hexString,
       admin: false,
       role: req.user.role,
-      id:req.user._id,
+      id: req.user._id,
     };
 
     req.session.isLogged = true;
@@ -37,11 +37,46 @@ router.post('/login', publicRoutes,
   }
 );
 
+router.post('/loginandlogoutTest',
+  passport.authenticate('login'),
+  async (req, res) => {
+    if (!req.user) {
+      console.log("entro en el false de re.user")
+
+      res.status(400).send();
+    }
+
+    const objectId_ = req.user.cart[0]._id;
+
+    // Extract the hexadecimal representation
+    const hexString = objectId_.toHexString();
+
+    req.session.user = {
+      firstname: req.user.firstname,
+      lastname: req.user.lastname,
+      email: req.user.email,
+      age: req.user.age,
+      cart: hexString,
+      admin: false,
+      role: req.user.role,
+      id: req.user._id,
+    };
+
+    req.session.isLogged = true;
+    console.log("llegp hasta el session router")
+    console.log(req.session.user)
+    req.session.destroy()
+
+    return res.status(200).send()
+  }
+);
+
 router.post('/signup', publicRoutes, passport.authenticate("register",
   { failureRedirect: "/failsignup" }),
   async (req, res) => {
     res.redirect('/login');
   });
+
 
 
 router.get("/github",
@@ -64,7 +99,7 @@ router.get("/githubcallback",
       cart: hexString,
       role: req.user.role,
       admin: false,
-      id:req.user._id,
+      id: req.user._id,
     };
     req.session.isLogged = true;
 
@@ -95,6 +130,14 @@ router.get(
     res.send(dtouser);
   }
 );
+
+// router.get(
+//   '/signout', 
+//   async (req, res) => {
+
+//     res.send();
+//   }
+// );
 
 
 export default router;
