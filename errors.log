@@ -1908,3 +1908,17 @@ error: Error en ProductsService/getProductNpaginviaService: MongooseError: Opera
 error: Error en ProductsService/getProductNpaginviaService: MongooseError: Operation `products.find()` buffering timed out after 10000ms {"label":"logs","timestamp":"2023-12-16T20:56:30.256Z"}
 error: Error en ProductsService/getProductbyIDviaService: MongooseError: Operation `products.find()` buffering timed out after 10000ms {"label":"logs","timestamp":"2023-12-16T20:56:40.270Z"}
 error: Error en ProductsService/getProductNpaginviaService: MongooseError: Operation `products.find()` buffering timed out after 10000ms {"label":"logs","timestamp":"2023-12-16T20:56:50.284Z"}
+2024-01-01T16:50:05.918Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'password')
+2024-01-01T16:53:05.400Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'password')
+2024-01-01T16:54:34.547Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'password')
+2024-01-01T16:55:57.867Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'password')
+2024-01-01T16:56:47.218Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'password')
+2024-01-01T16:58:13.307Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'password')
+2024-01-01T16:59:59.878Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'password')
+2024-01-01T17:02:00.024Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'password')
+2024-01-01T17:02:44.723Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'password')
+2024-01-01T17:06:11.295Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'password')
+2024-01-01T17:08:16.681Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'password')
+2024-01-01T17:09:41.292Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'password')
+2024-01-01T17:10:27.536Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'password')
+2024-01-01T17:11:42.310Z [logs] error: Error en PasswordService/resetPassword: TypeError: Cannot read properties of null (reading 'password')

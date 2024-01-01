@@ -18,8 +18,8 @@ export default class passwordService {
             const { email } = req;
 
             const user = await userModel.find({ email: email });
-
-            if (!user) {
+           
+            if (user.length === 0) {
                 return `E02|El email no se encuentra agregado.`;
             }
 
@@ -58,36 +58,28 @@ export default class passwordService {
 
     async resetPassword(req, res) {
         try {
-
             var { token_, password, password2 } = req
-            
+
             const userPassword = await userPasswordModel.find({ token: token_ });
-            
-            const email = userPassword[0].email;
+
+            var email = userPassword[0].email;
 
             const tokentime = userPassword.timestamp;
-
             const currenttime = Date.now() / 1000;
-           
 
             const exptime = currenttime - tokentime;
 
-            if (exptime >= 3600) {
-                return `E02|Token Expiro.`;
-            }
+            if (exptime >= 3600) return `E02|Token Expiro.`;
+            
 
-            if (!userPassword || userPassword == null || Object.keys(userPassword).length === 0) {
-                return `E02|No se encontro el token en base de datos.`;
-            }
+            if (!userPassword || userPassword == null || Object.keys(userPassword).length === 0) return `E02|No se encontro el token en base de datos.`;
+            
 
-            if (userPassword[0].isUsed === true) {
-                return `E02|Token ya usado.`;
-            }
+            if (userPassword[0].isUsed === true) return `E02|Token ya usado.`;
+            
 
-            if (password !== password2) {
-                return `E02|las contraseñas son diferentes.`;
-            }
-
+            if (password !== password2) return `E02|las contraseñas son diferentes.`;
+            
             const usertoUpdate = await userModel.findOne({ email }).lean();
 
             var previouspassEncryp = usertoUpdate.password
@@ -96,13 +88,9 @@ export default class passwordService {
 
             var isthesame = await bcrypt.compare(password, previouspassEncryp)
 
-
             if (isthesame) return `E02|La contraseña ingresada es la misma que la anterior.`;
 
-
-            if (!usertoUpdate) {
-                return `E02|No existe usuario con el correo asociado al token.`;
-            }
+            if (!usertoUpdate) return `E02|No existe usuario con el correo asociado al token.`;
 
             usertoUpdate.password = newpassEncryp;
             await userModel.updateOne({ email }, usertoUpdate);
@@ -111,7 +99,6 @@ export default class passwordService {
                 { "email": email },
                 { $set: { isUsed: true } }
             )
-
             return `SUC|Exito.`;
 
         } catch (error) {
